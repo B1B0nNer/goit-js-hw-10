@@ -3,7 +3,9 @@ import Notiflix from 'notiflix';
 import 'slim-select/dist/slimselect.css';
 
 const urlHost = `https://api.thecatapi.com/v1`;
-const apiKey = 'live_Sp5v6emKEIvR1gjqxotPiqkbZLCmuPxMih75Cr8p2TPl7bLTd34uS3dHI4QBX3tc'; 
+const apiKey = 'live_Sp5v6emKEIvR1gjqxotPiqkbZLCmuPxMih75Cr8p2TPl7bLTd34uS3dHI4QBX3tc';
+
+import { fetchCatByBreed  } from './cat-api';
 
 const selectEl = document.querySelector('.breed-select');
 const divCatEl = document.querySelector('.cat-info');
@@ -23,18 +25,6 @@ function fetchBreeds() {
           })
 
 };
-
- function fetchCatByBreed(id) {
-
-  return fetch(`${urlHost}/images/search?breed_ids=${id}&api_key=${apiKey}`)
-      .then(response => {
-          if (!response.ok) {
-
-              throw new Error(response.statusText || response.status)}
-              return response.json()
-
-          })
- }
 
 function createMarkup(array = []) {
 
